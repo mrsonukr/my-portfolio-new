@@ -1,4 +1,5 @@
 import React, { useState, useCallback, memo } from "react";
+import ToggleSwitch from "./ui/ToggleSwitch";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/30 text-black">
       <div className="flex justify-between items-center p-3 md:px-8">
-        <h1 className="text-[32px] font-extrabold">mrsonukr.</h1>
+        <h1 className="text-[32px] font-bold">mrsonukr.</h1>
 
         {/* Hamburger Icon */}
         <div className="md:hidden">
@@ -37,7 +38,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:block text-slate-600">
+        <nav className="hidden md:flex items-center space-x-6 text-slate-600">
           <ul className="flex space-x-6">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -50,6 +51,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          <ToggleSwitch />
         </nav>
       </div>
 
