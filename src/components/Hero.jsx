@@ -18,7 +18,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-[72px] font-bold leading-snug mb-4 dark:text-white">
             <span>Hi, I'm </span>
             <span className="text-primary">
-              S <span className="sonu"></span>nu Kumar
+              S <span className="sonu w-6 h-6 md:h-8 md:w-8 md:ml-0 ml-1"></span>nu Kumar
             </span>
           </h1>
           <MovingText />
