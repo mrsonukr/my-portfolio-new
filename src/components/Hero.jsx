@@ -41,15 +41,15 @@ const Hero = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center p-6 md:p-12 bg-cover bg-center overflow-hidden dark:bg-gray-900 pt-20 md:pt-0 pattern-overlay"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 md:p-12 bg-cover bg-center overflow-hidden dark:bg-gray-900 pt-20 md:pt-0 pattern-overlay"
       style={{ backgroundImage: "url(/images/box-pattern.svg)" }}
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between">
         <div ref={contentRef} className="max-w-3xl z-10 hero-content">
-          <h1 className="text-5xl md:text-[72px] font-bold leading-tight mb-4 dark:text-white whitespace-nowrap">
-            <span>Hi, I'm </span>
-            <span className="text-primary">
-              S <span className="sonu w-6 h-6 md:h-8 md:w-8 md:ml-0 ml-1"></span>nu Kumar
+          <h1 className="text-5xl md:text-[72px] font-bold leading-tight mb-4 dark:text-white flex flex-col md:flex-row md:items-center">
+            <span className="whitespace-nowrap">Hi, I'm</span>
+            <span className="text-primary md:ml-2 flex items-center">
+              S <span className="sonu ml-4 mt-2 md:mt-5 w-6  h-6 md:h-8 md:w-8 "></span>nu Kumar
             </span>
           </h1>
           <MovingText />
