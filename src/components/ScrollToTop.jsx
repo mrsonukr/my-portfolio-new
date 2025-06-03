@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       const viewportHeight = window.innerHeight;
-      
-      // Show button after scrolling past 30% of viewport height
+
       setIsVisible(scrolled > viewportHeight * 0.3);
 
-      // Calculate scroll progress
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercentage = (winScroll / height) * 100;
@@ -25,24 +25,31 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Dynamic theme-based colors
+  const ringColor = isDark ? '#1a1a1a' : '#ffffff'; // fallback bg behind progress
+  const arrowBg = isDark ? '#1f2937' : '#f3f4f6';    // gray-800 / gray-100
+  const arrowColor = isDark ? '#00ff94' : '#10b981'; // green for light/dark (primary)
 
   return (
     <button
-      className={`fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary transition-all duration-300 cursor-pointer ${
+      onClick={scrollToTop}
+      className={`fixed bottom-8 right-8 w-12 h-12 rounded-full transition-all duration-300 cursor-pointer ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
       }`}
-      onClick={scrollToTop}
       style={{
-        background: `conic-gradient(var(--green) ${scrollProgress}%, #1a1a1a ${scrollProgress}%)`,
+        background: `conic-gradient(${arrowColor} ${scrollProgress}%, ${ringColor} ${scrollProgress}%)`,
       }}
     >
-      <span className="absolute inset-0.5 rounded-full bg-gray-900 dark:bg-gray-800 flex items-center justify-center">
-        <ArrowUp className="w-6 h-6 text-primary" />
+      <span
+        className="absolute inset-0.5 rounded-full flex items-center justify-center"
+        style={{
+          backgroundColor: arrowBg,
+        }}
+      >
+        <ArrowUp className="w-6 h-6" style={{ color: arrowColor }} />
       </span>
     </button>
   );
