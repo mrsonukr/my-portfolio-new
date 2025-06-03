@@ -1,17 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import "@fontsource/inter"; // Defaults to weight 400
-import "@fontsource/inter/600.css"; // Optional: Import specific weights
-import Hero from './components/Hero';
-import Footer from './components/Footer';
+import "@fontsource/inter";
+import "@fontsource/inter/600.css";
+import { ThemeProvider } from './context/ThemeContext.jsx';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Hero />
-      <Footer />
-    </div>
+    <Router>
+      <ThemeProvider>
+        <div className="min-h-screen transition-colors duration-200">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 
