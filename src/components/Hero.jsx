@@ -1,20 +1,47 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import MovingText from "./ui/MovingText";
 import Button from "./ui/Button";
+import { gsap } from "gsap";
 
 const Hero = () => {
   const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    // Set initial states
+    gsap.set([contentRef.current.children, imageRef.current], {
+      opacity: 0,
+      y: 50
+    });
+    
+    // Animate content
+    tl.to(contentRef.current.children, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.2,
+      clearProps: "all" // This ensures final state is clean
+    })
+    .to(imageRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      clearProps: "all" // This ensures final state is clean
+    }, "-=0.4");
+  }, []);
 
   return (
     <>
-      {" "}
       <section
         ref={sectionRef}
         className={`relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between p-6 md:p-12 bg-cover bg-center overflow-hidden dark:bg-gray-900 pt-20 md:pt-0 pattern-overlay`}
         style={{ backgroundImage: "url(/images/box-pattern.svg)" }}
       >
         {/* Content */}
-        <div className="max-w-2xl z-10 hero-content">
+        <div ref={contentRef} className="max-w-3xl z-10 hero-content">
           <h1 className="text-5xl md:text-[72px] font-bold leading-snug mb-4 dark:text-white">
             <span>Hi, I'm </span>
             <span className="text-primary">
@@ -29,13 +56,13 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4">
-            <Button variant="primary" label="View My Work"  />
+            <Button variant="primary" label="View My Work" />
             <Button variant="secondary" label="Download CV" href="/document/Resume - Sonu Kumar.pdf" />
           </div>
         </div>
 
         {/* Image */}
-        <div className="relative mt-10 md:mt-0">
+        <div ref={imageRef} className="relative mt-10 md:mt-0">
           <img
             src="/images/me-fade.png"
             alt="Sonu Kumar"

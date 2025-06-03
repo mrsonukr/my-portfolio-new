@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import "@fontsource/inter";
-import "@fontsource/inter/600.css";
+import "@fontsource-variable/inter";
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import Home from './pages/Home';
 import About from './pages/About';
