@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import MovingText from "./ui/MovingText";
 import Button from "./ui/Button";
-import ScrollButton from "./ui/ScrollButton";
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -30,8 +29,8 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4">
-            <Button variant="primary" label="Click Me" />
-            <Button variant="secondary" label="Download" />
+            <Button variant="primary" label="View My Work"  />
+            <Button variant="secondary" label="Download CV" href="/document/Resume - Sonu Kumar.pdf" />
           </div>
         </div>
 
