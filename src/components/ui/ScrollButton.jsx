@@ -1,19 +1,19 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronsDown } from 'lucide-react';
 
 const ScrollButton = ({ onClick }) => {
   return (
     <button 
-      onClick={onClick}
-      aria-label="Scroll to about section"
-      className="group p-2 flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-1"
+      onClick={() => {
+        console.log('Button clicked');
+        if (onClick) onClick();
+      }}
+      className="z-50 pointer-events-auto p-2 flex flex-col items-center gap-2"
     >
-      <div className="flex flex-col gap-1">
-        <ChevronDown 
-          className="w-6 h-6 text-black dark:text-white animate-bounce" 
-          strokeWidth={2.5}
-        />
-      </div>
+      <ChevronsDown 
+        className="w-6 h-6 text-black dark:text-white animate-bounce" 
+        strokeWidth={2.5}
+      />
     </button>
   );
 };

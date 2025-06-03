@@ -10,31 +10,34 @@ const Hero = () => {
   const imageRef = useRef(null);
 
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.getElementById("about");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    
+
     gsap.set([contentRef.current.children, imageRef.current], {
       opacity: 0,
-      y: 50
+      y: 50,
     });
-    
+
     tl.to(contentRef.current.children, {
       y: 0,
       opacity: 1,
       duration: 0.8,
       stagger: 0.2,
-      clearProps: "all"
-    })
-    .to(imageRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      clearProps: "all"
-    }, "-=0.4");
+      clearProps: "all",
+    }).to(
+      imageRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        clearProps: "all",
+      },
+      "-=0.4"
+    );
   }, []);
 
   return (
@@ -49,7 +52,9 @@ const Hero = () => {
           <h1 className="text-5xl md:text-[72px] font-bold leading-tight mb-4 dark:text-white flex flex-col md:flex-row md:items-center">
             <span className="whitespace-nowrap">Hi, I'm</span>
             <span className="text-primary md:ml-2 flex items-center">
-              S <span className="sonu ml-4 mt-2 md:mt-5 w-6  h-6 md:h-8 md:w-8 "></span>nu Kumar
+              S{" "}
+              <span className="sonu ml-4 mt-2 md:mt-5 w-6  h-6 md:h-8 md:w-8 "></span>
+              nu Kumar
             </span>
           </h1>
           <MovingText />
@@ -60,8 +65,16 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4">
-            <Button variant="primary" label="View My Work" onClick={scrollToAbout} />
-            <Button variant="secondary" label="Download CV" href="/document/Resume - Sonu Kumar.pdf" />
+            <Button
+              variant="primary"
+              label="View My Work"
+              onClick={scrollToAbout}
+            />
+            <Button
+              variant="secondary"
+              label="Download CV"
+              href="/document/Resume - Sonu Kumar.pdf"
+            />
           </div>
         </div>
 
@@ -80,9 +93,9 @@ const Hero = () => {
           />
         </div>
       </div>
-      
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-        <ScrollButton onClick={scrollToAbout} />
+
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 hidden md:block md:bottom-12">
+<ScrollButton onClick={scrollToAbout} />
       </div>
     </section>
   );

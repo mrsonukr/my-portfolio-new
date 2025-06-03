@@ -54,7 +54,7 @@ const Header = () => {
                   className={`transition-colors duration-200 ${
                     isActive(link.href)
                       ? 'text-primary '
-                      : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
+                      : 'text-black dark:text-slate-300 hover:text-primary dark:hover:text-primary'
                   }`}
                 >
                   {link.label}
