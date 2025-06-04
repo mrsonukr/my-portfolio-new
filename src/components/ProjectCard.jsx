@@ -1,8 +1,9 @@
 import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectCard = ({ project }) => (
   <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden ">
       <img
         src={project.image}
         alt={project.title}
@@ -24,17 +25,19 @@ const ProjectCard = ({ project }) => (
           href={project.demo}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 text-center px-4 py-2 bg-primary text-black rounded-lg hover:bg-opacity-90 transition-colors text-sm font-medium"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary text-black rounded-lg hover:bg-opacity-80 transition-colors text-sm font-medium"
         >
-          Live Demo
+          <ExternalLink className="w-4 h-4" aria-hidden="true" />
+          <span>Live Demo</span>
         </a>
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 text-center px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-800 dark:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm font-medium"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-800 dark:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm font-medium"
         >
-          GitHub
+          <Github className="w-4 h-4" aria-hidden="true" />
+          <span>GitHub</span>
         </a>
       </div>
     </div>

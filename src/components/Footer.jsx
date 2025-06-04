@@ -1,5 +1,5 @@
-import React from "react";
-import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebookF, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { SiBuymeacoffee, SiThreads } from 'react-icons/si';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,7 +23,7 @@ const Footer = () => {
                 className="text-gray-600 hover:text-primary transition-colors"
                 aria-label="GitHub Profile"
               >
-                <Github className="w-6 h-6" />
+                <FaGithub className="w-6 h-6" />
               </a>
               <a
                 href="https://linkedin.com/in/mrsonukr"
@@ -32,7 +32,7 @@ const Footer = () => {
                 className="text-gray-600 hover:text-primary transition-colors"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin className="w-6 h-6" />
+                <FaLinkedin className="w-6 h-6" />
               </a>
               <a
                 href="https://instagram.com/mrsonukr"
@@ -41,7 +41,34 @@ const Footer = () => {
                 className="text-gray-600 hover:text-primary transition-colors"
                 aria-label="Instagram Profile"
               >
-                <Instagram className="w-6 h-6" />
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://facebook.com/mrsonukr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-primary transition-colors"
+                aria-label="Facebook Profile"
+              >
+                <FaFacebookF className="w-6 h-6" />
+              </a>
+              <a
+                href="https://buymeacoffee.com/mrsonukr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-primary transition-colors"
+                aria-label="Buy me a coffee"
+              >
+                <SiBuymeacoffee className="w-6 h-6" />
+              </a>
+              <a
+                href="https://threads.net/@mrsonukr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-primary transition-colors"
+                aria-label="Threads Profile"
+              >
+                <SiThreads className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -154,12 +181,13 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
           {/* Contact Info */}
           <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
+                <FaEnvelope className="w-5 h-5 text-primary" />
                 <a
                   href="mailto:mssonukr@gmail.com"
                   className="text-gray-600 hover:text-primary transition-colors"
@@ -168,7 +196,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-primary" />
+                <FaMapMarkerAlt className="w-5 h-5 text-primary" />
                 <span className="text-gray-600">Ambala, Haryana - 133207</span>
               </div>
             </div>
