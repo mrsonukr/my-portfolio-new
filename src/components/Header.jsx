@@ -17,19 +17,24 @@ const Header = () => {
     { label: "Projects", href: "/projects" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
+    { label: "Gallery", href: "/gallery" },
   ];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/30 dark:bg-black/30">
-      <div className="flex justify-between items-center p-3 md:px-8">
-        <Link to="/" className="text-[32px] font-bold text-black dark:text-white">
-        mrsonukr.
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* Professional Blur Background */}
+      <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-800/20 "></div>
+      
+      {/* Content */}
+      <div className="relative flex justify-between items-center p-3 md:px-8">
+        <Link to="/" className="text-[32px] font-bold text-black dark:text-white relative z-10">
+          mrsonukr.
         </Link>
 
         {/* Hamburger Icon */}
-        <div className="md:hidden">
+        <div className="md:hidden relative z-10">
           <label className="hamburger w-6 h-6">
             <input
               type="checkbox"
@@ -46,42 +51,53 @@ const Header = () => {
           </label>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-6">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 relative z-10">
           <ul className="flex space-x-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   to={link.href}
-                  className={`transition-colors duration-200 ${
+                  className={`transition-all duration-300 px-3 py-2 rounded-lg relative ${
                     isActive(link.href)
-                      ? 'text-primary '
-                      : 'text-black dark:text-slate-300 hover:text-primary dark:hover:text-primary'
+                      ? 'text-primary font-semibold'
+                      : 'text-black dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-white/20 dark:hover:bg-gray-800/20'
                   }`}
                 >
                   {link.label}
+                  {isActive(link.href) && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"></div>
+                  )}
                 </Link>
               </li>
             ))}
           </ul>
-          <ToggleSwitch checked={isDark} onChange={toggleTheme} />
+          <div className="ml-4 p-1 rounded-full">
+            <ToggleSwitch checked={isDark} onChange={toggleTheme} />
+          </div>
         </nav>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out relative ${
+          menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <ul className="px-4 pb-4 space-y-3">
+        {/* Mobile Menu Blur Background */}
+        <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-800/20"></div>
+        
+        {/* Mobile Menu Content */}
+        <ul className="relative px-4 pb-4 pt-2 space-y-3">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 to={link.href}
                 onClick={toggleMenu}
-                className={`block transition-colors duration-200 ${
+                className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
                   isActive(link.href)
-                    ? 'text-primary font-semibold'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary'
+                    ? 'text-primary font-semibold bg-primary/10 border border-primary/20'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-white/30 dark:hover:bg-gray-800/30'
                 }`}
               >
                 {link.label}
@@ -89,11 +105,13 @@ const Header = () => {
             </li>
           ))}
           <li className="pt-2">
-            <ToggleSwitch 
-              checked={isDark} 
-              onChange={toggleTheme} 
-              className="block md:hidden"
-            />
+            <div className="flex items-center justify-center p-3 rounded-xl bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/30">
+              <ToggleSwitch 
+                checked={isDark} 
+                onChange={toggleTheme} 
+                className="block md:hidden"
+              />
+            </div>
           </li>
         </ul>
       </div>
