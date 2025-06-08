@@ -1,86 +1,93 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Footer from '../components/Footer';
+import React from "react";
 
 const Gallery = () => {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const loaderRef = useRef(null);
-
-  const loadMoreImages = () => {
-    setLoading(true);
-    // Simulate API call with timeout
-    setTimeout(() => {
-      const newImages = Array.from({ length: 10 }, (_, i) => ({
-        id: images.length + i + 1,
-        url: `https://picsum.photos/400/300?random=${images.length + i + 1}`,
-        title: `Image ${images.length + i + 1}`
-      }));
-      setImages(prev => [...prev, ...newImages]);
-      setLoading(false);
-      setPage(prev => prev + 1);
-    }, 1000);
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const first = entries[0];
-        if (first.isIntersecting && !loading) {
-          loadMoreImages();
-        }
-      },
-      { threshold: 1.0 }
-    );
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-  }, [loading]);
-
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-12 dark:text-white">
-          Gallery
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map(image => (
-            <div
-              key={image.id}
-              className="relative overflow-hidden rounded-lg aspect-[4/3] bg-gray-200 dark:bg-gray-800"
-            >
-              <img
-                src={image.url}
-                alt={image.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-              />
-            </div>
-          ))}
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="grid gap-4">
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            alt="gallery-photo"
+          />
         </div>
-
-        <div
-          ref={loaderRef}
-          className="flex justify-center items-center h-20 mt-8"
-        >
-          {loading && (
-            <div className="animate-pulse space-x-4">
-              <div className="h-3 w-3 bg-primary rounded-full"></div>
-              <div className="h-3 w-3 bg-primary rounded-full"></div>
-              <div className="h-3 w-3 bg-primary rounded-full"></div>
-            </div>
-          )}
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center "
+            src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+            alt="gallery-photo"
+          />
         </div>
       </div>
-      <Footer />
+      <div className="grid gap-4">
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center "
+            src="https://docs.material-tailwind.com/img/team-3.jpg"
+            alt="gallery-photo"
+          />
+        </div>
+      </div>
+      <div className="grid gap-4">
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center "
+            src="https://docs.material-tailwind.com/img/team-3.jpg"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+      </div>
+      <div className="grid gap-4">
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+        <div>
+          <img
+            className="h-auto max-w-full rounded-lg object-cover object-center"
+            src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
+            alt="gallery-photo"
+          />
+        </div>
+      </div>
     </div>
   );
 };
