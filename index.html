@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="manifest" href="/manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Sonu Kumar - Full Stack Developer specializing in modern web technologies and cloud architecture. View my portfolio and projects." />
@@ -13,16 +14,29 @@
   <meta property="og:description" content="Portfolio showcasing my work in web development and cloud architecture" />
   <meta property="og:type" content="website" />
 
-  <!-- ✅ Add these lines -->
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+  <!-- iOS Safari Status Bar -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  
+  <!-- Android Chrome Status Bar -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  
+  <!-- Initial theme-color (will be updated dynamically) -->
+  <meta name="theme-color" content="#ffffff" />
 
   <title>Sonu Kumar - Full Stack Developer</title>
   <script>
     (function () {
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (isDark) {
         document.documentElement.classList.add('dark');
+        // Update theme-color immediately for faster loading
+        document.querySelector('meta[name="theme-color"]').content = '#0f172a';
+      } else {
+        // Ensure light theme color
+        document.querySelector('meta[name="theme-color"]').content = '#ffffff';
       }
     })();
   </script>
