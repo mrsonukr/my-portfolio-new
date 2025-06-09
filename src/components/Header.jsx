@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Professional Blur Background */}
-      <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-800/20 "></div>
+      <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-800/20"></div>
       
       {/* Content */}
       <div className="relative flex justify-between items-center p-3 md:px-8">
@@ -81,16 +81,16 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out relative ${
-          menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         {/* Mobile Menu Blur Background */}
         <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-800/20"></div>
         
         {/* Mobile Menu Content */}
-        <ul className="relative px-4 pb-4 pt-2 space-y-3">
+        <div className="relative px-4 pb-4 pt-2 space-y-3">
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <div key={link.href}>
               <Link
                 to={link.href}
                 onClick={toggleMenu}
@@ -102,18 +102,22 @@ const Header = () => {
               >
                 {link.label}
               </Link>
-            </li>
+            </div>
           ))}
-          <li className="pt-2">
-            <div className="flex items-center justify-center p-3 rounded-xl bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/30">
+          
+          {/* Mobile Theme Toggle */}
+          <div className="pt-2">
+            <div className="flex items-center justify-between p-3 rounded-xl bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm border border-white/30 dark:border-gray-700/30">
+              <span className="text-slate-600 dark:text-slate-300 font-medium">
+                {isDark ? 'Dark Mode' : 'Light Mode'}
+              </span>
               <ToggleSwitch 
                 checked={isDark} 
-                onChange={toggleTheme} 
-                className="block md:hidden"
+                onChange={toggleTheme}
               />
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </header>
   );
