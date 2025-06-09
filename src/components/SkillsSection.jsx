@@ -3,23 +3,23 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from './ui/Button';
 import { 
-  MonitorIcon, 
-  FileJson, 
-  Database, 
-  Server,
-  Layers,
-  Palette
-} from 'lucide-react';
+  SiReact,
+  SiJavascript,
+  SiCss3,
+  SiMongodb,
+  SiNodedotjs,
+  SiTailwindcss
+} from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  { name: 'React', percentage: 90, icon: MonitorIcon },
-  { name: 'JavaScript', percentage: 85, icon: FileJson },
-  { name: 'CSS', percentage: 88, icon: Palette },
-  { name: 'MongoDB', percentage: 82, icon: Database },
-  { name: 'Node.js', percentage: 80, icon: Server },
-  { name: 'Tailwind', percentage: 92, icon: Layers },
+  { name: 'React', percentage: 90, icon: SiReact },
+  { name: 'JavaScript', percentage: 85, icon: SiJavascript },
+  { name: 'CSS', percentage: 88, icon: SiCss3 },
+  { name: 'MongoDB', percentage: 82, icon: SiMongodb },
+  { name: 'Node.js', percentage: 80, icon: SiNodedotjs },
+  { name: 'Tailwind', percentage: 92, icon: SiTailwindcss },
 ];
 
 const SkillsSection = () => {
@@ -47,11 +47,11 @@ const SkillsSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top 85%",
-        toggleActions: "play none none reverse"
+        once: true // This ensures animation plays only once
       }
     });
 
-    // Animate skill items and their progress bars immediately after they appear
+    // Animate skill items and their progress bars
     skills.forEach((skill, index) => {
       const skillItem = skillsContainer.children[index];
       const progressBar = progressBarsRef.current[index];
@@ -63,7 +63,7 @@ const SkillsSection = () => {
         scrollTrigger: {
           trigger: skillItem,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          once: true, // This ensures animation plays only once
           onEnter: () => {
             // Animate progress bar as soon as the skill item appears
             gsap.fromTo(progressBar,

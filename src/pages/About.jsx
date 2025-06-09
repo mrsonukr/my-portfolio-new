@@ -146,8 +146,7 @@ const About = () => {
           scrollTrigger: {
             trigger: educationRef.current,
             start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
+            once: true, // This ensures animation plays only once
           },
         }
       );
@@ -163,8 +162,7 @@ const About = () => {
           scrollTrigger: {
             trigger: imageRef.current,
             start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
+            once: true, // This ensures animation plays only once
           },
         }
       );
@@ -182,8 +180,7 @@ const About = () => {
               scrollTrigger: {
                 trigger: bar,
                 start: "top 90%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse",
+                once: true, // This ensures animation plays only once
               },
             }
           );
@@ -203,8 +200,7 @@ const About = () => {
           scrollTrigger: {
             trigger: contactRef.current,
             start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
+            once: true, // This ensures animation plays only once
           },
         }
       );

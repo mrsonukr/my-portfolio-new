@@ -26,7 +26,7 @@ const ContactSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top 85%",
-        toggleActions: "play none none reverse"
+        once: true // This ensures animation plays only once
       }
     });
   }, []);

@@ -28,7 +28,7 @@ const AboutSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top 85%",
-        toggleActions: "play none none reverse"
+        once: true // This ensures animation plays only once
       }
     });
 
@@ -40,7 +40,7 @@ const AboutSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top 85%",
-        toggleActions: "play none none reverse"
+        once: true // This ensures animation plays only once
       }
     });
 
@@ -52,7 +52,7 @@ const AboutSection = () => {
       scrollTrigger: {
         trigger: cards,
         start: "top 90%",
-        toggleActions: "play none none reverse"
+        once: true // This ensures animation plays only once
       }
     });
   }, []);
