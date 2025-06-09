@@ -1,27 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sonu Kumar - Full Stack Developer specializing in modern web technologies and cloud architecture. View my portfolio and projects." />
-    <meta name="keywords" content="Sonu Kumar, Web Developer, Full Stack Developer, React Developer, Portfolio" />
-    <meta name="author" content="Sonu Kumar" />
-    <meta property="og:title" content="Sonu Kumar - Full Stack Developer" />
-    <meta property="og:description" content="Portfolio showcasing my work in web development and cloud architecture" />
-    <meta property="og:type" content="website" />
-    <title>Sonu Kumar - Full Stack Developer</title>
-    <script>
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Sonu Kumar - Full Stack Developer specializing in modern web technologies and cloud architecture. View my portfolio and projects." />
+  <meta name="keywords" content="Sonu Kumar, Web Developer, Full Stack Developer, React Developer, Portfolio" />
+  <meta name="author" content="Sonu Kumar" />
+  <meta property="og:title" content="Sonu Kumar - Full Stack Developer" />
+  <meta property="og:description" content="Portfolio showcasing my work in web development and cloud architecture" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ Add these lines -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+
+  <title>Sonu Kumar - Full Stack Developer</title>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
