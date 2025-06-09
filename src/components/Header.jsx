@@ -80,11 +80,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out relative ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        {/* Mobile Menu Blur Background */}
+        {/* Mobile Menu Glass Background */}
         <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-t border-white/20 dark:border-gray-800/20"></div>
         
         {/* Mobile Menu Content */}
