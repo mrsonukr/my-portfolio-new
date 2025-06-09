@@ -29,16 +29,18 @@ const ProjectCard = ({ project, loading }) => {
     <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
       <div className="relative overflow-hidden h-48">
         {hasBanner ? (
-          <LazyLoadImage
-            src={project.banner}
-            alt={project.name}
-            effect="blur"
-            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-            placeholderSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23cccccc'/%3E%3C/svg%3E"
-            onError={(e) => {
-              e.target.src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg';
-            }}
-          />
+          <div className="w-full h-full overflow-hidden">
+            <LazyLoadImage
+              src={project.banner}
+              alt={project.name}
+              effect="blur"
+              className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105 will-change-transform"
+              placeholderSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23cccccc'/%3E%3C/svg%3E"
+              onError={(e) => {
+                e.target.src = 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg';
+              }}
+            />
+          </div>
         ) : (
           <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
             <Image className="w-12 h-12 text-gray-400 dark:text-gray-600" />
