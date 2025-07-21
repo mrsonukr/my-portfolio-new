@@ -61,7 +61,7 @@ const Hero = () => {
           <p className="text-lg my-6 dark:text-gray-300">
             Passionate about creating innovative web solutions and sharing
             knowledge through technical writing. Specialized in modern web
-            technologies and cloud architecture.
+            technologies and cloud architecture. Test
           </p>
 
           <div className="flex gap-4">
