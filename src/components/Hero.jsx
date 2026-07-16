@@ -82,13 +82,13 @@ const Hero = () => {
           <img
             src="/images/me-fade.png"
             alt="Sonu Kumar"
-            className="block md:hidden w-64 h-auto z-10 relative"
+            className="block md:hidden w-80 h-auto z-10 relative"
             loading="lazy"
           />
           <img
             src="/images/me-fade.png"
             alt="Sonu Kumar"
-            className="hidden md:block w-[400px] h-auto z-10 relative"
+            className="hidden md:block w-[550px] h-auto z-10 relative"
             loading="lazy"
           />
         </div>
