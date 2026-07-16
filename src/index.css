@@ -12,22 +12,6 @@
 
 body {
     font-family: 'Inter Variable', sans-serif;
-    background-color: #ffffff;
-    transition: background-color 0.3s ease;
-    padding-top: env(safe-area-inset-top);
-}
-
-.dark body {
-    background-color: #0f172a;
-}
-
-html {
-    background-color: #ffffff;
-    transition: background-color 0.3s ease;
-}
-
-.dark html {
-    background-color: #0f172a;
 }
 
 .hamburger {
