@@ -1,11 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { useTheme } from '../../context/ThemeContext';
 
-const Button = ({ variant = 'primary', label, href = "#" }) => {
+const Button = ({ variant = 'primary', label, href = "#", onClick, type = "link" }) => {
   const buttonRef = useRef(null);
   const flairRef = useRef(null);
-  const { isDark } = useTheme();
 
   useEffect(() => {
     const button = buttonRef.current;
@@ -72,21 +70,44 @@ const Button = ({ variant = 'primary', label, href = "#" }) => {
 
   const styles = {
     primary: {
-      button: "bg-primary text-black hover:text-white dark:hover:text-black",
-      flair: isDark ? "bg-white" : "bg-black"
+      button: "bg-primary text-black hover:text-black",
+      flair: "bg-white"
     },
     secondary: {
-      button: "bg-transparent text-black dark:text-white border-2 border-black dark:border-white hover:text-white dark:hover:text-black",
-      flair: isDark ? "bg-white" : "bg-black"
+      button: "bg-transparent text-white border-2 border-white hover:text-black",
+      flair: "bg-white"
     }
   };
 
   const buttonStyle = styles[variant];
 
+  if (type === "button") {
+    return (
+      <button
+        ref={buttonRef}
+        onClick={onClick}
+        className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-base overflow-hidden transition-colors duration-200 group ${buttonStyle.button}`}
+      >
+        <span
+          ref={flairRef}
+          className="flair absolute inset-0 pointer-events-none z-0 transform scale-0 origin-center will-change-transform"
+        >
+          <span
+            className={`block w-[170%] aspect-square absolute top-0 left-0 rounded-full transform -translate-x-1/2 -translate-y-1/2 ${buttonStyle.flair}`}
+          ></span>
+        </span>
+        <span className="label relative z-10 transition-colors duration-200">
+          {label}
+        </span>
+      </button>
+    );
+  }
+
   return (
     <a
       ref={buttonRef}
       href={href}
+      onClick={onClick}
       className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-base overflow-hidden transition-colors duration-200 group ${buttonStyle.button}`}
     >
       <span

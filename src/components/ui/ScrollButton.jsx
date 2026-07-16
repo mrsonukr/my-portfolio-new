@@ -11,7 +11,7 @@ const ScrollButton = ({ onClick }) => {
       className="z-50 pointer-events-auto p-2 flex flex-col items-center gap-2"
     >
       <ChevronsDown 
-        className="w-6 h-6 text-black dark:text-white animate-bounce" 
+        className="w-6 h-6 text-white animate-bounce" 
         strokeWidth={2.5}
       />
     </button>

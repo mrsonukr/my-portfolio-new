@@ -55,46 +55,16 @@ const updateThemeColor = (isDark) => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  });
-
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
 
     // Update theme-color meta tags for status bar
-    updateThemeColor(isDark);
-  }, [isDark]);
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = (e) => {
-      const savedTheme = localStorage.getItem('theme');
-      if (!savedTheme) {
-        setIsDark(e.matches);
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    updateThemeColor(true);
   }, []);
 
-  const toggleTheme = () => {
-    setIsDark(prev => !prev);
-  };
-
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDark: true, toggleTheme: () => {} }}>
       {children}
     </ThemeContext.Provider>
   );

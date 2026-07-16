@@ -211,14 +211,14 @@ const About = () => {
   }, []);
 
   return (
-    <div className="pt-20 min-h-screen bg-white dark:bg-gray-900">
+    <div className="pt-20 min-h-screen bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <div ref={heroRef} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             About Me
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             I'm a passionate full-stack developer specializing in creating
             innovative web solutions. With a strong foundation in modern
             technologies and a keen eye for design, I bring ideas to life
@@ -235,7 +235,7 @@ const About = () => {
 
         {/* Education Section with Image */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 dark:text-white">Education</h2>
+          <h2 className="text-3xl font-bold mb-8 text-white">Education</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div ref={educationRef} className="space-y-6">
               {education.map((edu, index) => (
@@ -247,13 +247,13 @@ const About = () => {
                     <FaGraduationCap className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold dark:text-white">
+                    <h3 className="text-xl font-semibold text-white">
                       {edu.institution}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-300">
                       {edu.degree}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-gray-400">
                       {edu.location}
                     </p>
                     <p className="text-sm text-primary">{edu.period}</p>
@@ -276,24 +276,24 @@ const About = () => {
 
         {/* Skills Section */}
         <section ref={skillsRef} className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 dark:text-white">
+          <h2 className="text-3xl font-bold mb-8 text-white">
             Skills & Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+                className="bg-gray-800 p-6 rounded-lg"
               >
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="text-lg font-semibold dark:text-white">
+                  <h3 className="text-lg font-semibold text-white">
                     {skill.name}
                   </h3>
                   <span className="text-sm font-medium text-primary">
                     {skill.level}
                   </span>
                 </div>
-                <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
                   <div
                     ref={(el) => (progressBarsRef.current[index] = el)}
                     className="h-full bg-primary rounded-full"
@@ -307,15 +307,15 @@ const About = () => {
 
         {/* Contact Information */}
         <section ref={contactRef}>
-          <h2 className="text-3xl font-bold mb-8 dark:text-white">
+          <h2 className="text-3xl font-bold mb-8 text-white">
             Contact Information
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="flex items-center gap-4 contact-item">
               <FaEnvelope className="w-6 h-6 text-primary" />
               <div>
-                <h3 className="font-medium dark:text-white">Email</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="font-medium text-white">Email</h3>
+                <p className="text-gray-300">
                   mssonukr@gmail.com
                 </p>
               </div>
@@ -323,8 +323,8 @@ const About = () => {
             <div className="flex items-center gap-4 contact-item">
               <FaMapMarkerAlt className="w-6 h-6 text-primary" />
               <div>
-                <h3 className="font-medium dark:text-white">Location</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="font-medium text-white">Location</h3>
+                <p className="text-gray-300">
                   Ambala, Haryana - 133207
                 </p>
               </div>
@@ -332,8 +332,8 @@ const About = () => {
             <div className="flex items-center gap-4 contact-item">
               <FaPhone className="w-6 h-6 text-primary rotate-90" />
               <div>
-                <h3 className="font-medium dark:text-white">Phone</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="font-medium text-white">Phone</h3>
+                <p className="text-gray-300">
                   +91 70615 43815
                 </p>
               </div>

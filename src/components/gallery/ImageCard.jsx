@@ -6,12 +6,12 @@ const ImageCard = ({ photo, onClick }) => {
 
   return (
     <div
-      className="relative group cursor-pointer overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-[1.02]"
+      className="relative group cursor-pointer overflow-hidden rounded-2xl bg-gray-800 shadow-sm hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-[1.02]"
       onClick={onClick}
     >
       {!isLoaded && !isError && (
         <div 
-          className="animate-pulse bg-gray-200 dark:bg-gray-700"
+          className="animate-pulse bg-gray-700"
           style={{ aspectRatio: `${photo.width}/${photo.height}` }}
         />
       )}
@@ -38,7 +38,7 @@ const ImageCard = ({ photo, onClick }) => {
       )}
       
       {isError && (
-        <div className="flex items-center justify-center h-48 text-gray-400 dark:text-gray-600">
+        <div className="flex items-center justify-center h-48 text-gray-600">
           <p className="text-sm">Failed to load image</p>
         </div>
       )}

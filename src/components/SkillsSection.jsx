@@ -84,12 +84,12 @@ const SkillsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-white dark:bg-gray-900 relative"
+      className="py-24 bg-gray-900 relative"
     >
       {/* Background Pattern and Blurred Circles */}
       <div className="absolute inset-0 pointer-events-none">
         {/* SVG Dot Grid */}
-        <div className="absolute inset-0 opacity-[0.1] dark:opacity-[0.1]">
+        <div className="absolute inset-0 opacity-[0.1]">
           <svg
             width="100%"
             height="100%"
@@ -108,7 +108,7 @@ const SkillsSection = () => {
                   cy="20"
                   r="2"
                   fill="currentColor"
-                  className="text-gray-500 dark:text-gray-400"
+                  className="text-gray-400"
                 />
               </pattern>
             </defs>
@@ -125,10 +125,10 @@ const SkillsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div ref={contentRef} className="flex-1">
-            <h2 className="text-4xl font-bold mb-6 dark:text-white">
+            <h2 className="text-4xl font-bold mb-6 text-white">
               Why Hire Me For Your Next Project?
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
               I'm a specialist in UI/UX Design. My passion is designing & solving problems through user experience and research.
             </p>
             <Button
@@ -146,11 +146,11 @@ const SkillsSection = () => {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <Icon className="w-5 h-5 text-primary" />
-                      <span className="font-medium dark:text-white">{skill.name}</span>
+                      <span className="font-medium text-white">{skill.name}</span>
                     </div>
                     <span className="text-primary font-medium">{skill.percentage}%</span>
                   </div>
-                  <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       ref={el => progressBarsRef.current[index] = el}
                       className="h-full bg-primary rounded-full"

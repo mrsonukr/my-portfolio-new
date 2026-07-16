@@ -44,12 +44,12 @@ const Hero = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center px-4 md:p-12 bg-cover bg-center overflow-hidden dark:bg-gray-900 pt-20 md:pt-0 pattern-overlay"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 md:p-12 bg-cover bg-center overflow-hidden bg-gray-900 pt-20 md:pt-0 pattern-overlay"
       style={{ backgroundImage: "url(/images/box-pattern.svg)" }}
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between">
         <div ref={contentRef} className="max-w-3xl z-10 hero-content">
-          <h1 className="text-5xl md:text-[72px] font-bold leading-tight mb-4 dark:text-white flex flex-col md:flex-row md:items-center">
+          <h1 className="text-5xl md:text-[72px] font-bold leading-tight mb-4 text-white flex flex-col md:flex-row md:items-center">
             <span className="whitespace-nowrap">Hi, I'm</span>
             <span className="text-primary md:ml-2 flex items-center">
               S{" "}
@@ -58,7 +58,7 @@ const Hero = () => {
             </span>
           </h1>
           <MovingText />
-          <p className="text-lg my-6 dark:text-gray-300">
+          <p className="text-lg my-6 text-gray-300">
             Passionate about creating innovative web solutions and sharing
             knowledge through technical writing. Specialized in modern web
             technologies and cloud architecture.

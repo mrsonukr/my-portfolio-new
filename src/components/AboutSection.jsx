@@ -10,6 +10,18 @@ const AboutSection = () => {
   const textRef = useRef(null);
   const cardsRef = useRef(null);
 
+  // Calculate experience from 2023-01-01
+  const calculateExperience = () => {
+    const startDate = new Date('2023-01-01');
+    const currentDate = new Date();
+    const diffTime = Math.abs(currentDate - startDate);
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    const diffYears = diffDays / 365.25;
+    return Math.floor(diffYears);
+  };
+
+  const experience = calculateExperience();
+
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
@@ -61,39 +73,39 @@ const AboutSection = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-24 bg-gray-50 dark:bg-gray-900 flex items-center justify-center min-h-screen"
+      className="relative py-24 bg-gray-900 flex items-center justify-center min-h-screen"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 ref={headingRef} className="text-4xl font-bold text-center mb-8 dark:text-white">
+        <h2 ref={headingRef} className="text-4xl font-bold text-center mb-8 text-white">
           About Me
         </h2>
-        <p ref={textRef} className="text-center text-gray-600 dark:text-gray-300 mx-auto mb-12 text-lg leading-relaxed max-w-3xl">
+        <p ref={textRef} className="text-center text-gray-300 mx-auto mb-12 text-lg leading-relaxed max-w-3xl">
           I'm a dedicated Computer Science Engineering student with a passion for building meaningful solutions. With over two years of practical experience, I specialize in full-stack development and UI/UX design, creating innovative projects that address real-world challenges. My journey is driven by a strong desire to learn, code, and design—constantly exploring new ways to push the limits of technology.
         </p>
 
         <div ref={cardsRef} className="flex flex-row flex-wrap justify-center gap-4 max-w-5xl mx-auto px-2">
           <div className="card w-[30%] min-w-[100px] max-w-[150px]">
-            <div className="bg dark:bg-gray-800 dark:outline-gray-800"></div>
+            <div className="bg bg-gray-800 outline-gray-800"></div>
             <div className="blob"></div>
             <div className="relative z-10 p-4 text-center">
-              <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-2">2+ Years</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">Experience</p>
+              <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-2">{experience}+ Years</h3>
+              <p className="text-sm text-gray-300">Experience</p>
             </div>
           </div>
           <div className="card w-[30%] min-w-[100px] max-w-[150px]">
-            <div className="bg dark:bg-gray-800 dark:outline-gray-800"></div>
+            <div className="bg bg-gray-800 outline-gray-800"></div>
             <div className="blob"></div>
             <div className="relative z-10 p-4 text-center">
               <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-2">15+</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">Projects Completed</p>
+              <p className="text-sm text-gray-300">Projects Completed</p>
             </div>
           </div>
           <div className="card w-[30%] min-w-[100px] max-w-[150px]">
-            <div className="bg dark:bg-gray-800 dark:outline-gray-800"></div>
+            <div className="bg bg-gray-800 outline-gray-800"></div>
             <div className="blob"></div>
             <div className="relative z-10 p-4 text-center">
               <h3 className="text-2xl sm:text-4xl font-bold text-primary mb-2">10+</h3>
-              <p className="text-sm text-gray-700 dark:text-gray-300">Tech Stacks Mastered</p>
+              <p className="text-sm text-gray-300">Tech Stacks Mastered</p>
             </div>
           </div>
         </div>

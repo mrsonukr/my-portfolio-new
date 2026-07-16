@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <ThemeProvider>
-        <div className="min-h-screen transition-colors duration-200">
+        <div className="min-h-screen bg-gray-900">
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
